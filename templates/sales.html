@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+{%block headblock%}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+    window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+
+    data: [{
+        type: "pie",
+        startAngle: 90,
+        indexLabel: "{label} ",
+        dataPoints: [
+            {y: {{item4ta}}, label: "{{vitems.3.item_name}}"},
+            {y: {{item1ta}}, label: "{{vitems.0.item_name}}"},
+            {y: {{item2ta}}, label: "{{vitems.1.item_name}}"},
+            {y: {{item3ta}}, label: "{{vitems.2.item_name}}"},
+        ]
+    }]
+});
+chart.render();
+
+}
+</script>
+{%endblock headblock%}
+{%block blockstyle%}
+<style type="text/css">
+body {
+    background: #eee;
+}
+
+.main-body {
+    padding: 15px;
+}
+
+p {
+    font-size: 14px;
+    color: #777;
+}
+
+.btncolor {
+    background-color: #B14;
+    color: white;
+}
+
+
+@media screen and (min-width: 720px) {
+    .itemcontpad {
+        padding-left: 250px;
+        padding-right: 250px
+    }
+}
+
+.flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto
+}
+
+@media (max-width:991.98px) {
+    .padding {
+        padding: 1.5rem
+    }
+}
+
+@media (max-width:767.98px) {
+    .padding {
+        padding: 1rem
+    }
+}
+
+.padding {
+    padding: 5rem
+}
+
+.card {
+    background: #fff;
+    border-width: 0;
+    border-radius: .25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .05);
+    margin-bottom: 1.5rem
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(19, 24, 44, .125);
+    border-radius: .25rem
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(19, 24, 44, .03);
+    border-bottom: 1px solid rgba(19, 24, 44, .125)
+}
+
+.card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0
+}
+
+card-footer,
+.card-header {
+    background-color: transparent;
+    border-color: rgba(160, 175, 185, .15);
+    background-clip: padding-box
+}
+</style>
+{%endblock%}
+{%block maincontent%}
+<div class="container-fluid">
+
+    <nav aria-label="breadcrumb" class="main-breadcrumb my-3">
+        <ol class="breadcrumb b-bg-c">
+            <li class="breadcrumb-item"><a href="{%url 'index' %}" style="text-decoration: none;">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Sales</li>
+        </ol>
+    </nav>
+    <div class="row my-4">
+        <div class="col">
+            <div class="page-content page-container" id="page-content">
+                <div class="row">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <div class="col-md-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header">Sales Table</div>
+                                <div class="card-body" style="height: 400px">
+                                    <table class="table table-hover " style="text-align: center;">
+                                        <thead>
+                                            <tr>
+                                                <th>Item Name</th>
+                                                <th>Sold Qty</th>
+                                                <th>Total Amount(₹)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {%for vitem in vitems%}
+                                            <tr>
+                                                <td>{{vitem.item_name}}</td>
+                                                {% if vitem.id == 1 %}
+                                                <td>{{item1sc}}</td>
+                                                <td>{{item1ta}}</td>
+                                                {% elif vitem.id == 2 %}
+                                                <td>{{item2sc}}</td>
+                                                <td>{{item2ta}}</td>
+                                                {% elif vitem.id == 3 %}
+                                                <td>{{item3sc}}</td>
+                                                <td>{{item3ta}}</td>
+                                                {% elif vitem.id == 4 %}
+                                                <td>{{item4sc}}</td>
+                                                <td>{{item4ta}}</td>
+                                                {%endif%}
+                                            </tr>
+                                            {%endfor%}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+                <div class="row">
+                    <div class="container d-flex justify-content-center">
+                        <div class="col-md-12 col-md-6">
+                            <div class="card">
+                                <div class="card-header">Sales Pie chart</div>
+                                <div class="card-body" style="height: 400px">
+                                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

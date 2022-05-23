@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{%block blockstyle%}
+<style type="text/css">
+body {
+    background: #eee;
+}
+
+.main-body {
+    padding: 15px;
+}
+
+p {
+    font-size: 14px;
+    color: #777;
+}
+
+.btncolor {
+    background-color: #B14;
+    color: white;
+}
+
+.btncolor:hover {
+        background-image: linear-gradient(#b14 25%, 75%, #bf7a30);
+        color: white;
+}
+
+
+@media screen and (min-width: 720px) {
+    .itemcontpad {
+        padding-left: 250px;
+        padding-right: 250px
+    }
+}
+</style>
+{%endblock%}
+{%block maincontent%}
+<div class="container-fluid">
+    <div class="main-body">
+        <nav aria-label="breadcrumb" class="main-breadcrumb my-1">
+            <ol class="breadcrumb b-bg-c">
+                <li class="breadcrumb-item active"><a href="{%url 'index' %}" style="text-decoration: none;">Home</a></li>
+            </ol>
+        </nav>
+        <div class="container" style="align-content: center;">
+            <div class="row">
+                {% for vitem in vitems%}
+                <div class="col-lg-6" style="margin-bottom: 10px; ">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">{{vitem.item_name}}</h5>
+                            <p style="margin-bottom: 2px;">₹{{vitem.item_price}}</p>
+                            <p>Qty. {{vitem.item_inv}}</p>
+                            <img src="{{vitem.item_img.url}}" width="200px" height="120px"><br>
+                            <br>
+                            <a href="{%url 'edititem' vitem.id %}" class="btn btncolor">Edit</a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

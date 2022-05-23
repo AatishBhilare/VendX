@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VendX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+    header {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .my-nav-bg {
+        background-image: linear-gradient(135deg, #b14 25%, 75%, #bf7a30);
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa {
+        position: relative;
+        width: 36px;
+        font-size: 24px;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+        font-size: 0.75rem;
+        position: absolute;
+        right: 0;
+        font-family: sans-serif;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa {
+        top: 3px;
+        line-height: 12px;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+        top: -10px;
+    }
+
+    @media (min-width: 576px) {
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    .b-bg-c {
+        background-color: white;
+    }
+
+    body {
+        background: #eee;
+    }
+
+    .main-body {
+        padding: 15px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .btncolor {
+        background-color: #B14;
+        color: white;
+
+    }
+
+    .btncolor:hover {
+        background-image: linear-gradient(#b14 25%, 75%, #bf7a30);
+        color: white;
+    }
+
+    @media screen and (min-width: 720px) {
+        .itemcontpad {
+            padding-left: 250px;
+            padding-right: 250px
+        }
+    }
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark my-nav-bg">
+        <div class="justify-content-center" id="navbarSupportedContent ">
+            <h2 style="color: white; margin-bottom: 20px; margin-top: 20px;">VendX</h2>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="main-body">
+            <div class="container" style="align-content: center;">
+                <div class="row">
+                    {% for vitem in vitems%}
+                    <div class="col-lg-6" style="margin-bottom: 10px; ">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">{{vitem.item_name}}</h5>
+                                <p>₹{{vitem.item_price}}</p>
+                                <img src="{{vitem.item_img.url}}" width="200px" height="120px"><br>
+                                <br>
+                                {% if vitem.item_inv == 0 or not vitem.item_inv %}
+                                <div class="btn btncolor">Out of stock</div>
+                                {% else %}
+                                <a href="{%url 'pay' vitem.id %}" class="btn btncolor">Pay</a>
+                                {%endif%}
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="container-fluid">
+            <div class="col" style="text-align: center;">
+                <p style=" display: inline-block; font-size: 1.02em; vertical-align: middle;">UPI Based Vending Machine &copy; 2020-2021</p>
+            </div>
+        </div>
+    </footer>
+    <!---<div id='notificationm'>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog"> 
+                <div class="modal-content" style="width: 130%;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div style="overflow: scroll;">
+                                <table class="table table-bordered" >
+                                    <thead>
+                                        <tr>
+                                            <th>Sr.No</th>
+                                            <th>Message</th>
+                                            <th>Appointment ID</th>
+                                            <th>View</th>
+                                            <th>Mark As Read</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {%if objnotify.ptosns%}
+                                        {%for ptosn in objnotify.ptosns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>New Appointment Is Created</td>
+                                            <td>{{ptosn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'edit_appointment' ptosn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deleteptosnotify' ptosn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                        {%if objnotify.stopns %}
+                                        {%for stopn in objnotify.stopns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>Your Appointment Is {{stopn.status}}</td>
+                                            <td>{{stopn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'edit_appointment' stopn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deletestopnotify' stopn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                        {%if objnotify.stodns %}
+                                        {%for stodn in objnotify.stodns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>You have New Appointment</td>
+                                            <td>{{stodn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'edit_appointment' stodn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deletestodnotify' stodn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                        dtopns
+                                        {%if objnotify.dtopns %}
+                                        {%for dtopn in objnotify.dtopns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{dtopn.doctor}} Invite You For meeting , Id : {{dtopn.meeting_id}}</td>
+                                            <td>{{dtopn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'meeting' dtopn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deletedtopnotify' dtopn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--->
+</body>
+
+</html>

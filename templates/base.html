@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VendX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {%block headblock%} {%endblock headblock%}
+    <style type="text/css">
+    header {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .my-nav-bg {
+        background-image: linear-gradient(#b14 15%, 85%, #bf7a30);
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa {
+        position: relative;
+        width: 36px;
+        font-size: 24px;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+        font-size: 0.75rem;
+        position: absolute;
+        right: 0;
+        font-family: sans-serif;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa {
+        top: 3px;
+        line-height: 12px;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+        top: -10px;
+    }
+
+    @media (min-width: 576px) {
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    .b-bg-c {
+        background-color: white;
+    }
+    </style>
+    {%block blockstyle%}
+    {%endblock%}
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark my-nav-bg">
+        <h1 class="navbar-brand" style="font-size: 2em;">VendX</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{%url 'index'%}">
+                        Home
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'sales'%}">
+                        Sales
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fa fa-bell">
+                            {% if vitems.0.item_inv == 0 or not vitems.0.item_inv or vitems.1.item_inv == 0 or not vitems.1.item_inv or vitems.2.item_inv == 0 or not vitems.2.item_inv or vitems.3.item_inv == 0 or not vitems.3.item_inv %}<span class="badge badge-danger">{{invcount}}</span>{%endif%}
+                        </i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {%block maincontent%}{%endblock%}
+    <footer class="main-footer" style="margin-top: 100px;">
+        <div class="container-fluid">
+            <div class="col" style="text-align: center;">
+                <p style=" display: inline-block; font-size: 1.02em; vertical-align: middle;">UPI Based Vending Machine &copy; 2020-2021</p>
+            </div>
+        </div>
+    </footer>
+    <div id='notificationm'>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" style="width: 130%;">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="exampleModalLabel">Inventory Updates</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div style="overflow: scroll;">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Item Name</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {%for vitem2 in vitems%}
+                                        {%if vitem2.item_inv == 0 or not vitem2.item_inv %}
+                                        <tr>
+                                            <td>{{vitem2.item_name}}</td>
+                                            <td>Out of Stock</td>
+                                        </tr>
+                                        {%endif%}
+                                        {%endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

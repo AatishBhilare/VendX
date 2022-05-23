@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>VendX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+    body {
+        color: #1a202c;
+        text-align: left;
+        background-color: #e2e8f0;
+    }
+
+    .main-body {
+        padding: 15px;
+    }
+
+    .card {
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+    }
+
+    .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 0 solid rgba(0, 0, 0, .125);
+        border-radius: .25rem;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        min-height: 1px;
+        padding: 1rem;
+    }
+
+    .gutters-sm {
+        margin-right: -8px;
+        margin-left: -8px;
+    }
+
+    .gutters-sm>.col,
+    .gutters-sm>[class*=col-] {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+
+    .mb-3,
+    .my-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .bg-gray-300 {
+        background-color: #e2e8f0;
+    }
+
+    .h-100 {
+        height: 100% !important;
+    }
+
+    .shadow-none {
+        box-shadow: none !important;
+    }
+
+    header {
+        background-color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .my-nav-bg {
+        background-image: linear-gradient(135deg, #b14 25%, 75%, #bf7a30);
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa {
+        position: relative;
+        width: 36px;
+        font-size: 24px;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+        font-size: 0.75rem;
+        position: absolute;
+        right: 0;
+        font-family: sans-serif;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa {
+        top: 3px;
+        line-height: 12px;
+    }
+
+    .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+        top: -10px;
+    }
+
+    @media (min-width: 576px) {
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+            text-align: center;
+            display: table-cell;
+            height: 70px;
+            vertical-align: middle;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa {
+            display: block;
+            width: 48px;
+            margin: 2px auto 4px auto;
+            top: 0;
+            line-height: 24px;
+        }
+
+        .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa>.badge {
+            top: -7px;
+        }
+    }
+
+    .b-bg-c {
+        background-color: white;
+    }
+
+    body {
+        background: #eee;
+    }
+
+    .main-body {
+        padding: 15px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #777;
+    }
+
+    .btncolor {
+        background-color: #B14;
+        color: white;
+    }
+
+
+    @media screen and (min-width: 720px) {
+        .itemcontpad {
+            padding-left: 250px;
+            padding-right: 250px
+        }
+    }
+    </style>
+    <script type="text/javascript">
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark my-nav-bg">
+        <div class="justify-content-center" id="navbarSupportedContent ">
+            <h2 style="color: white; margin-bottom: 20px; margin-top: 20px;">VendX Payment</h2>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="main-body">
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="height: 100%; padding-top: 30px;">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="{{vitem.item_img.url}}" alt="Admin" class="" width="200px" height="120px" style="margin-top: 20px;">
+                                <div class="mt-3">
+                                    <h4>{{vitem.item_name}}</h4>
+                                    <p class="text-secondary mb-1">₹{{vitem.item_price}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3 ">
+                        <div class="card-body" style="padding-top:50px; padding-bottom: 50px; ">
+                            <form method="POST" enctype="multipart/form-data" >
+                                {%csrf_token%}
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Your Name: </h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="hidden" name="item_id" value="{{vitem.id}}">
+                                        <input type="text" class="form-control" name="username" required>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Amount: </h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="number" class="form-control" name="amount" value="{{vitem.item_price}}" readonly>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row ">
+                                    <div class="col-sm-9 text-secondary">
+                                        <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Cancel</a>
+                                        <input type="submit" name="save" class="btn" style="color: white; background: #B14;" value="Proceed">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer" style="margin-top: 150px;">
+        <div class="container-fluid">
+            <div class="col" style="text-align: center;">
+                <p style=" display: inline-block; font-size: 1.02em; vertical-align: middle;">UPI Based Vending Machine &copy; 2020-2021</p>
+            </div>
+        </div>
+    </footer>
+    <!---<div id='notificationm'>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog"> 
+                <div class="modal-content" style="width: 130%;">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div style="overflow: scroll;">
+                                <table class="table table-bordered" >
+                                    <thead>
+                                        <tr>
+                                            <th>Sr.No</th>
+                                            <th>Message</th>
+                                            <th>Appointment ID</th>
+                                            <th>View</th>
+                                            <th>Mark As Read</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {%if objnotify.ptosns%}
+                                        {%for ptosn in objnotify.ptosns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>New Appointment Is Created</td>
+                                            <td>{{ptosn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'edit_appointment' ptosn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deleteptosnotify' ptosn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                        {%if objnotify.stopns %}
+                                        {%for stopn in objnotify.stopns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>Your Appointment Is {{stopn.status}}</td>
+                                            <td>{{stopn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'edit_appointment' stopn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deletestopnotify' stopn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                        {%if objnotify.stodns %}
+                                        {%for stodn in objnotify.stodns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>You have New Appointment</td>
+                                            <td>{{stodn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'edit_appointment' stodn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deletestodnotify' stodn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                        dtopns
+                                        {%if objnotify.dtopns %}
+                                        {%for dtopn in objnotify.dtopns %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{dtopn.doctor}} Invite You For meeting , Id : {{dtopn.meeting_id}}</td>
+                                            <td>{{dtopn.appointment_id}}</td>
+                                            <td><a class="btn-sm btn-info" href="{% url 'meeting' dtopn.appointment_id %}">view</a></td>
+                                            <td><a class="btn-sm btn-info" href="{%url 'deletedtopnotify' dtopn.id %}">markasread</a></td>
+                                        </tr>
+                                        {%endfor%}
+                                        {%endif%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>--->
+</body>
+
+</html>
